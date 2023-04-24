@@ -1,0 +1,21 @@
+/*//////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////*/
+/* COLOR PALLET */
+/* 
+#14365C - DARKBLUE  
+#F1FA39 - YELLOW
+#E31717 - RED
+#99998D - GRAY
+#0E2747 - DARKBLUE */
+
+/*//////////////////////////////////////////////////////////*/
+
+textarea {
+  margin: 10px 0px;
+  width: 100%;
+  border-radius: 10px;
+  height: 383px;
+  resize: none;
+  padding: 10px;
+  border: solid 2px gray;
+}

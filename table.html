@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+   <title>1</title>
+   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
+</head>
+
+<body>
+   <!-- <svg>
+      <link rel="icon" href="icons">
+   </svg> -->
+
+   <!-- /*//////////////////////////////////////////////////////////*/
+      /*//////////////////////////////////////////////////////////*/
+      /* COLOR PALLET */
+      /*
+      #14365C - DARKBLUE
+      #F1FA39 - YELLOW
+      #E31717 - RED
+      #99998D - GRAY
+      #0E2747 - DARKBLUE */
+      
+      /*//////////////////////////////////////////////////////////*/ -->
+   <div class="containerIcon">
+      <button id="search"><img src="./icon/search.png" alt="search" style="width: 40px;"></button>
+      <button id="btn-show" onclick="show()"><img src="./icon/menu.png" alt="menu" style="width: 40px;"></button>
+      <div class="containerEdit">
+         <button id="edit" onclick="edit()" style="display: none;">edit</button>
+      </div>
+   </div>
+
+
+   <div class="container"
+      style="background: var(--bs-gray-400);text-align: center;margin-top: 276px;margin-left: auto;height: 475px;padding-right: 0px;padding-left: 0px;width: 85%;border-width: 0px;border-style: solid;margin-right: auto;border-radius: 15px;">
+
+      <table id="logTable" class="logTable">
+         <thead class="thead">
+            <tr class="thead-row">
+               <th id="filename" class="filename">Filename</th>
+               <th id="converted_text" class="converted_text">Converted Text</th>
+            </tr>
+         </thead>
+         <tbody class="tbody" id="tbody">
+
+         </tbody>
+      </table>
+
+
+
+   </div>
+
+
+
+   <!-- JAVASCRIPT FUNCTION -->
+   <script src="assets/js/bootstrap.min.js"></script>
+   <script src="assets/js/function.js"></script>
+   <script src="/assets/js/table.js"></script>
+</body>
+
+</html>
