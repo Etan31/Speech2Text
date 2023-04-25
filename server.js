@@ -28,10 +28,6 @@ app.options("/saveData", (req, res) => {
   res.sendStatus(200);
 });
 
-// app.get("/", (req, res) => {
-//   res.render("main.html");
-// });
-
 app.get("/", (req, res) => {
   res.render("main");
 });
