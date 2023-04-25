@@ -7,9 +7,9 @@
    <title>frontend</title>
 
    <!-- STYLES -->
-   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-   <link rel="stylesheet" href="assets/css/styles.min.css">
-   <link rel="stylesheet" href="assets/css/input.css">
+   <link rel="stylesheet" href="/css/bootstrap.min.css">
+   <link rel="stylesheet" href="/css/styles.min.css">
+   <link rel="stylesheet" href="/css/input.css">
 
    <!-- ICONS-->
    <link rel="stylesheet"
@@ -18,21 +18,14 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
 
 
-   <!-- /*//////////////////////////////////////////////////////////*/
-      /*//////////////////////////////////////////////////////////*/
-      /* COLOR PALLET */
-      /*
-      #14365C - DARKBLUE
-      #F1FA39 - YELLOW
-      #E31717 - RED
-      #99998D - GRAY
-      #0E2747 - DARKBLUE */
-      
-      /*//////////////////////////////////////////////////////////*/ -->
-
 </head>
 
 <body style="width: 100vw;height: auto;">
+   <div class="menu-container">
+      <a href="/mainpage" id="recordbtn"><button>Recording</button></a>
+      <a href="/table" id="recordList"><button>Lists of Recording</button></a>
+   </div>
+
    <div class="container d-flex flex-shrink-1 flex-fill align-items-center"
       style="height: 60px;width: 85%;margin-top: 103px;border-radius: 10px;background: var(--bs-gray-300);font-family: roboto;text-align: left;line-height: 49px;padding: 0px;padding-right: 0px;">
       <input type="text" id="inputText"
@@ -42,6 +35,7 @@
          <span class="material-symbols-outlined" style="font-size: 40px;">save</span>
       </button>
    </div>
+
    <div class="container"
       style="margin-top: 93px;height: 408px;width: 85%;font-family: Roboto;border-radius: 10px;background: var(--bs-gray-300);">
       <div class="voice_to_text">
@@ -59,10 +53,10 @@
       </button>
    </div>
 
-   <script type="text/javascript" src="assets/js/input.js"></script>
-   <script src="assets/js/bootstrap.min.js"></script>
-   <script src="assets/js/function.js"></script>
-   <script src="TRYFUNCTION.js"></script>
+   <script type="text/javascript" src="/js/input.js"></script>
+   <script src="/js/bootstrap.min.js"></script>
+   <script src="/js/function.js"></script>
+   <script src="/js/TRYFUNCTION.js"></script>
 </body>
 
 </html>

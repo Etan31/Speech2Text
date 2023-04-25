@@ -89,12 +89,34 @@
     scroll-behavior: smooth;
   }
 }
+/* /
+//////STYLES
 
-.containerIcon {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/NEW
+*/
+/* .containerIcon {
   text-align: right;
   position: relative;
   top: 25px;
-}
+} */
 
 .containerIcon > button {
   margin-right: 15px;
@@ -206,12 +228,12 @@
 }
 
 .filename {
-  border-top-left-radius: 15px;
+  border-top-left-radius: 50px;
   width: 30%;
 }
 
 .converted_text {
-  border-top-right-radius: 15px;
+  border-top-right-radius: 50px;
   width: 70%;
 }
 .tbody > tr {

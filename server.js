@@ -1,4 +1,3 @@
-///////ADDED CORS HEADERS(DONE- CAN APPEND TO EXISTING DATA.JSON)
 const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require("fs");
@@ -8,7 +7,9 @@ const path = require("path");
 const port = process.env.port || 5500;
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname + "public"));
+app.use(express.static(__dirname + "/assets"));
+app.set("view engine", "ejs");
+// app.set("views", path.join(__dirname, "views"));
 
 const dataFilePath = "./saveData/data.json";
 
@@ -30,6 +31,18 @@ app.options("/saveData", (req, res) => {
 // app.get("/", (req, res) => {
 //   res.render("main.html");
 // });
+
+app.get("/", (req, res) => {
+  res.render("main");
+});
+
+app.get("/mainpage", (req, res) => {
+  res.render("main.ejs");
+});
+
+app.get("/table", (req, res) => {
+  res.render("table.ejs");
+});
 
 app.post("/saveData", (req, res) => {
   const inputText = req.body.input.filename;
