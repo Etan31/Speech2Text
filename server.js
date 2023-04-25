@@ -44,6 +44,17 @@ app.get("/table", (req, res) => {
   res.render("table.ejs");
 });
 
+app.get("/tablelist", (req, res) => {
+  fs.readFile(dataFilePath, "utf8", (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error reading data.json");
+    } else {
+      res.json(JSON.parse(data));
+    }
+  });
+});
+
 app.post("/saveData", (req, res) => {
   const inputText = req.body.input.filename;
   const convertedText = req.body.textarea.convertedtext;

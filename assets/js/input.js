@@ -1,9 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////STOP RECORDING
-var clickToConvertButton = document.getElementById("click_to_convert");
+const clickToConvertButton = document.getElementById("click_to_convert");
 var isRecording = false; // added variable to track recording state
-var recognition;
-
-clickToConvertButton.addEventListener("click", function () {
+document.addEventListener("DOMContentLoaded", () => {
   if (!isRecording) {
     // start recording if not already recording
     isRecording = true;
@@ -31,7 +29,6 @@ clickToConvertButton.addEventListener("click", function () {
 });
 
 ///////////////////////////////////////////////////////////////////////////////////
-var clickToConvertButton = document.getElementById("click_to_convert");
 var isRecording = false;
 var recognition;
 
