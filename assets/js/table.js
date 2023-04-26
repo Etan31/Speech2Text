@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Create a cell for the filename and add it to the row
         const filenameCell = document.createElement("td");
         filenameCell.textContent = item.input.filename;
-        filenameCell.style.width = "30%"; // Set width to 30%
+        filenameCell.style.width = "30%";
+
         row.appendChild(filenameCell);
         // Create a cell for the converted text and add it to the row
         const convertedTextCell = document.createElement("td");
