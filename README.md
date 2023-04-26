@@ -2,4 +2,7 @@
 ## project for software development
 
 
-~ members:
+### members:
+#### Carl Jarrel Arca
+#### Jovic Pesebre
+#### Jonamie Dolim
