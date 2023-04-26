@@ -1,4 +1,3 @@
-// SHOWING TABLE LIST
 document.addEventListener("DOMContentLoaded", () => {
   // Fetch the data from the JSON file
   fetch("/tableList")
@@ -13,10 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // Create a cell for the filename and add it to the row
         const filenameCell = document.createElement("td");
         filenameCell.textContent = item.input.filename;
+        filenameCell.style.width = "30%"; // Set width to 30%
         row.appendChild(filenameCell);
         // Create a cell for the converted text and add it to the row
         const convertedTextCell = document.createElement("td");
         convertedTextCell.textContent = item.textarea.convertedtext;
+        convertedTextCell.style.width = "70%"; // Set width to 70%
         row.appendChild(convertedTextCell);
         // Add the row to the table body
         tableBody.appendChild(row);
