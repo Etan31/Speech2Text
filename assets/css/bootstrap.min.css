@@ -217,7 +217,24 @@
 
 /*//////////////////////////////////////////////////////////*/
 
+.container {
+  overflow: auto;
+}
+/* ///CONTAINER FROM MAIN  
+ textarea
+*/
+.container {
+  margin-top: 93px;
+  height: 408px;
+  width: 85%;
+  font-family: Roboto;
+  border-radius: 10px;
+  /* background: var(--bs-gray-300); */
+}
+
 .logTable {
+  /* width: 100vw; */
+  table-layout: fixed;
   width: 100%;
 }
 
@@ -225,6 +242,13 @@
   height: 50px;
   background-color: #0e2747;
   color: white;
+  border-top-right-radius: 50px;
+  display: table;
+  width: 100vw;
+  /* position: fixed; */
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .filename {
@@ -234,10 +258,11 @@
 
 .converted_text {
   border-top-right-radius: 50px;
-  width: 70%;
+  width: 70vw;
 }
 .tbody > tr {
   height: 50px;
+  overflow-y: auto;
 }
 
 /* .converted_text:hover {
@@ -250,10 +275,11 @@
 } */
 
 .tbody > tr:hover {
-  background-color: #1ea8e8;
+  /* background-color: #c1e8f1;
+  border-bottom: 2px solid rgb(0, 0, 0); */
   color: white;
   height: 50px;
-  transition: 0.5s;
+  transition: 0.1s;
 }
 
 .container::-webkit-scrollbar {
