@@ -2,6 +2,7 @@
 ## project for software development
 
 
+###LEADER: Tristan Ehron Tumbaga
 ### members:
 #### Carl Jarrel Arca
 #### Jovic Pesebre
