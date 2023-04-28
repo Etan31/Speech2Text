@@ -11,21 +11,42 @@
 
 /*//////////////////////////////////////////////////////////*/
 
-HTML,
+/* HTML,
 body {
-  /* display: grid; */
-  /* height: 100%; */
-  /* place-items: center; */
+  display: grid;
+  height: 100%;
+  place-items: center;
   background: #1ea8e8;
+} */
+body {
+  background: linear-gradient(-90deg, #112d4e, #2f72af, #dbe2ef, #f9f7f7);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 textarea {
+  font-family: "Roboto Slab", serif;
+  letter-spacing: 1px;
   margin: 10px 0px;
   width: 100%;
   border-radius: 10px;
   height: 383px;
   resize: none;
   padding: 10px;
-  border: solid 2px gray;
+  border: solid 2px rgb(50, 50, 50);
+  font-size: clamp(2rem, 50%, 3rem);
 }
 
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
@@ -93,7 +114,7 @@ textarea {
   text-align: center;
   line-height: 41px;
   font-size: 20px;
-  color: #1ea8e8;
+  color: #e31717;
   cursor: pointer;
   z-index: 1;
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -104,7 +125,7 @@ textarea {
   line-height: 42px;
   width: 40px;
   font-size: 26px;
-  background: #1ea8e8;
+  background: #e31717;
   color: #fff;
   transform: translateY(-50%) rotate(360deg);
 }

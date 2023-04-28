@@ -27,3 +27,23 @@ function saveData() {
     .then((message) => console.log(message))
     .catch((error) => console.error(error));
 }
+
+const inputText = document.getElementById("inputText");
+const textarea = document.getElementById("convert_text");
+
+function updateButtonState() {
+  if (inputText.value.trim() !== "" && textarea.value.trim() !== "") {
+    saveButton.removeAttribute("disabled");
+  } else {
+    saveButton.setAttribute("disabled", true);
+  }
+}
+
+inputText.addEventListener("input", updateButtonState);
+textarea.addEventListener("input", updateButtonState);
+
+saveButton.addEventListener("click", function () {
+  const converted_text = inputText.value.trim();
+});
+
+updateButtonState();
