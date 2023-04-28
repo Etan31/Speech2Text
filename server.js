@@ -8,8 +8,10 @@ const port = process.env.port || 5500;
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/assets"));
+app.use("/saveData", express.static(path.join(__dirname, "saveData")));
+
+// app.use(express.static("."));
 app.set("view engine", "ejs");
-// app.set("views", path.join(__dirname, "views"));
 
 const dataFilePath = "./saveData/data.json";
 
