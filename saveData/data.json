@@ -6,5 +6,21 @@
     "textarea": {
       "convertedtext": "w"
     }
+  },
+    {
+    "input": {
+      "filename": "filename12"
+    },
+    "textarea": {
+      "convertedtext": "w2"
+    }
+  },
+    {
+    "input": {
+      "filename": "filename13"
+    },
+    "textarea": {
+      "convertedtext": "w4"
+    }
   }
 ]

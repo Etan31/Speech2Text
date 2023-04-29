@@ -12,12 +12,10 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + "/assets"));
 app.use("/saveData", express.static(path.join(__dirname, "saveData")));
 
-// app.use(express.static("."));
 app.set("view engine", "ejs");
 
 const dataFilePath = "./saveData/data.json";
 
-// Allow CORS requests from any origin
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -106,7 +104,9 @@ app.post("/saveData", (req, res) => {
   });
 });
 
-app.listen(port, () => console.log(`Server listening on port ${port}`));
+app.listen(port, () =>
+  console.log(`Server listening on http://localhost:${port}`)
+);
 
 const connectionString = `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`;
 const client = new Client({
@@ -140,11 +140,11 @@ async function insertData() {
       "INSERT INTO table_name (filename, convertedtext) VALUES ($1, $2)";
 
     for (const item of jsonData) {
-      if (!item.filename || !item.input.filename) {
+      if (!item.input.filename || !item.textarea) {
         console.error("Error inserting data: invalid data format");
         continue;
       }
-      const values = [item.input.filename, item.textarea.convertedtext];
+      const values = [item.input.filename, item.textarea];
       const res = await client.query(insertQuery, values);
       console.log("Data inserted successfully");
     }
