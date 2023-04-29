@@ -6,53 +6,5 @@
     "textarea": {
       "convertedtext": "w"
     }
-  },
-  {
-    "input": {
-      "filename": "filename1"
-    },
-    "textarea": {
-      "convertedtext": "w"
-    }
-  },
-  {
-    "input": {
-      "filename": "new"
-    },
-    "textarea": {
-      "convertedtext": "new"
-    }
-  },
-  {
-    "input": {
-      "filename": "welk"
-    },
-    "textarea": {
-      "convertedtext": "skdn"
-    }
-  },
-  {
-    "input": {
-      "filename": "asfdsd"
-    },
-    "textarea": {
-      "convertedtext": "sd"
-    }
-  },
-  {
-    "input": {
-      "filename": "d"
-    },
-    "textarea": {
-      "convertedtext": "d"
-    }
-  },
-  {
-    "input": {
-      "filename": "d"
-    },
-    "textarea": {
-      "convertedtext": "d"
-    }
   }
 ]

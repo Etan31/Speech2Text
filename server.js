@@ -3,9 +3,10 @@ const bodyParser = require("body-parser");
 const fs = require("fs");
 const app = express("app");
 const path = require("path");
-const pg = require("pg");
+require("dotenv").config();
+const { Client } = require("pg");
 
-const port = process.env.port || 5500;
+const port = process.env.port || 8000;
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/assets"));
@@ -107,76 +108,55 @@ app.post("/saveData", (req, res) => {
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
 
-// /PUT YOUR CODE HERE/
-// const { Pool } = require("pg");
-// require("dotenv").config();
-// try {
-//   const res = await pool.query(insertQuery, values);
-//   console.log("Data inserted successfully");
-// } catch (err) {
-//   console.error("Error inserting data:", err);
-// }
-
-// const pool = new Pool({
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASSWORD,
-//   host: process.env.DB_HOST,
-//   port: process.env.DB_PORT,
-//   database: process.env.DB_DATABASE,
-// });
-
-// fs.readFile("./saveData/data.json", "utf8", (err, data) => {
-//   if (err) {
-//     console.error("Error reading data.json:", err);
-//     return;
-//   }
-
-//   const jsonData = JSON.parse(data);
-
-//   const insertQuery =
-//     "INSERT INTO table_name (filename, convertedtext) VALUES ($1, $2)";
-
-//   jsonData.forEach((item) => {
-//     const values = [item.input.filename, item.textarea.convertedtext];
-
-//     pool.query(insertQuery, values, (err, res) => {
-//       if (err) {
-//         console.error("Error inserting data:", err);
-//       } else {
-//         console.log("Data inserted successfully");
-//       }
-//     });
-//   });
-// });
-
-const { Pool } = require("pg");
-require("dotenv").config();
-
-const pool = new Pool({
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_DATABASE,
+const connectionString = `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`;
+const client = new Client({
+  connectionString: connectionString,
 });
+
+async function start() {
+  try {
+    await client.connect();
+    console.log("Connected to database");
+
+    const createTableQuery = `
+      CREATE TABLE IF NOT EXISTS table_name (
+        filename VARCHAR(200),
+        convertedtext VARCHAR(200)
+      )
+    `;
+    await client.query(createTableQuery);
+    console.log("Table created successfully");
+  } catch (err) {
+    console.error("Error connecting to database:", err);
+    throw err;
+  }
+}
 
 async function insertData() {
   try {
-    const data = await fs.promises.readFile("./saveData/data.json", "utf8");
+    const data = await fs.promises.readFile(dataFilePath, "utf8");
     const jsonData = JSON.parse(data);
-
     const insertQuery =
       "INSERT INTO table_name (filename, convertedtext) VALUES ($1, $2)";
 
     for (const item of jsonData) {
+      if (!item.filename || !item.input.filename) {
+        console.error("Error inserting data: invalid data format");
+        continue;
+      }
       const values = [item.input.filename, item.textarea.convertedtext];
-      const res = await pool.query(insertQuery, values);
+      const res = await client.query(insertQuery, values);
       console.log("Data inserted successfully");
     }
-
-    // End the database pool
-    await pool.end();
   } catch (err) {
     console.error("Error inserting data:", err);
   }
 }
+
+start()
+  .then(() => {
+    insertData();
+  })
+  .catch((err) => {
+    console.error("Error starting the application:", err);
+  });
