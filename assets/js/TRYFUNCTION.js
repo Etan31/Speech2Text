@@ -16,7 +16,7 @@ function saveData() {
   };
 
   // Send POST request to server to append data to data.json
-  fetch("http://localhost:8080/saveData", {
+  fetch("http://localhost:5500/saveData", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
