@@ -32,3 +32,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+
+  loader.classList.add("loader--hidden");
+
+  loader.addEventListener("transitionend", () => {
+    document.body.removeChild(loader);
+  });
+});
+
+// /LOADING SCREEN DURATION
+// setTimeout(function() {
+//   var loading = document.getElementById("loading");
+//   loading.classList.add("hidden");
+// }, 5000); // 5000 milliseconds = 5 seconds
