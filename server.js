@@ -1,17 +1,17 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require("fs");
-const app = express("app");
+const app = express();
 const path = require("path");
 require("dotenv").config();
 const { Client } = require("pg");
+const chokidar = require("chokidar");
 
-const port = process.env.port || 8000;
+const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/assets"));
 app.use("/saveData", express.static(path.join(__dirname, "saveData")));
-
 app.set("view engine", "ejs");
 
 const dataFilePath = "./saveData/data.json";
@@ -103,8 +103,8 @@ app.post("/saveData", (req, res) => {
   });
 });
 
-app.listen(port, () =>
-  console.log(`Server listening on http://localhost:${port}`)
+app.listen(PORT, () =>
+  console.log(`Server listening on http://localhost:${PORT}`)
 );
 
 const connectionString = `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`;
@@ -139,7 +139,7 @@ async function insertData() {
       "INSERT INTO table_name (filename, convertedtext) VALUES ($1, $2)";
 
     for (const item of jsonData) {
-      if (!item.input.filename || !item.textarea) {
+      if (!item.textarea || !item.textarea.convertedtext) {
         console.error("Error inserting data: invalid data format");
         continue;
       }
@@ -159,3 +159,25 @@ start()
   .catch((err) => {
     console.error("Error starting the application:", err);
   });
+
+// Watch data.json for changes and update the database accordingly
+chokidar.watch(dataFilePath).on("change", async (path) => {
+  try {
+    const data = await fs.promises.readFile(path, "utf8");
+    const jsonData = JSON.parse(data);
+    const insertQuery =
+      "INSERT INTO table_name (filename, convertedtext) VALUES ($1, $2)";
+
+    for (const item of jsonData) {
+      if (!item.textarea || !item.textarea.convertedtext) {
+        console.error("Error inserting data: invalid data format");
+        continue;
+      }
+      const values = [item.input.filename, item.textarea.convertedtext];
+      const res = await client.query(insertQuery, values);
+      console.log("Data inserted successfully");
+    }
+  } catch (err) {
+    console.error("Error inserting data:", err);
+  }
+});

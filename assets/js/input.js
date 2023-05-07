@@ -44,7 +44,7 @@ window.addEventListener("load", () => {
 });
 
 // /LOADING SCREEN DURATION
-// setTimeout(function() {
+// setTimeout(function () {
 //   var loading = document.getElementById("loading");
 //   loading.classList.add("hidden");
 // }, 5000); // 5000 milliseconds = 5 seconds
