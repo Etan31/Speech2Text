@@ -22,7 +22,6 @@ function updateTable(data) {
       convertedTextCell.textContent = item.textarea.convertedtext;
       convertedTextCell.style.width = "70%";
       row.appendChild(convertedTextCell);
-      // Add the row to the table body
       tableBody.appendChild(row);
     }
   }

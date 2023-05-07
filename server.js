@@ -135,6 +135,8 @@ async function insertData() {
   try {
     const data = await fs.promises.readFile(dataFilePath, "utf8");
     const jsonData = JSON.parse(data);
+    const selectQuery =
+      "SELECT * FROM table_name WHERE filename = $1 AND convertedtext = $2";
     const insertQuery =
       "INSERT INTO table_name (filename, convertedtext) VALUES ($1, $2)";
 
@@ -143,9 +145,14 @@ async function insertData() {
         console.error("Error inserting data: invalid data format");
         continue;
       }
-      const values = [item.input.filename, item.textarea];
-      const res = await client.query(insertQuery, values);
-      console.log("Data inserted successfully");
+      const values = [item.input.filename, item.textarea.convertedtext];
+      const res = await client.query(selectQuery, values);
+      if (res.rows.length === 0) {
+        await client.query(insertQuery, values);
+        console.log("Data inserted successfully");
+      } else {
+        console.log("Data already exists in database");
+      }
     }
   } catch (err) {
     console.error("Error inserting data:", err);
@@ -165,6 +172,8 @@ chokidar.watch(dataFilePath).on("change", async (path) => {
   try {
     const data = await fs.promises.readFile(path, "utf8");
     const jsonData = JSON.parse(data);
+    const selectQuery =
+      "SELECT * FROM table_name WHERE filename = $1 AND convertedtext = $2";
     const insertQuery =
       "INSERT INTO table_name (filename, convertedtext) VALUES ($1, $2)";
 
@@ -174,8 +183,13 @@ chokidar.watch(dataFilePath).on("change", async (path) => {
         continue;
       }
       const values = [item.input.filename, item.textarea.convertedtext];
-      const res = await client.query(insertQuery, values);
-      console.log("Data inserted successfully");
+      const res = await client.query(selectQuery, values);
+      if (res.rows.length === 0) {
+        await client.query(insertQuery, values);
+        console.log("Data inserted successfully");
+      } else {
+        console.log("Data already exists in database");
+      }
     }
   } catch (err) {
     console.error("Error inserting data:", err);
