@@ -83,7 +83,6 @@ app.post("/saveData", (req, res) => {
         }
       );
     } else {
-      // If data.json exists, read the existing data and append the new data to it
       const existingDataArray = existingData.length
         ? JSON.parse(existingData)
         : [];
