@@ -14,12 +14,19 @@ const startRecording = () => {
     document.getElementById("convert_text").innerHTML = transcript;
     console.log(transcript);
   });
+  recognition.addEventListener("end", () => {
+    if (isRecording) {
+      startRecording();
+    }
+  });
   recognition.start();
 };
 
 const stopRecording = () => {
-  isRecording = false;
-  recognition.stop();
+  if (isRecording) {
+    isRecording = false;
+    recognition.stop();
+  }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -33,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+//loader
 window.addEventListener("load", () => {
   const loader = document.querySelector(".loader");
 

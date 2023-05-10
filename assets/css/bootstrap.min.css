@@ -111,10 +111,10 @@
 #0E2747 - DARKBLUE */
 
 /*//////////////////////////////////////////////////////////*/
-
+/* 
 .container {
   overflow: auto;
-}
+} */
 
 .savetxt {
   font-family: "Roboto Slab", serif;
@@ -148,6 +148,7 @@
   background-color: #0e2747;
   color: white;
   border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   display: table;
   width: 100%;
   /* position: fixed; */
@@ -194,7 +195,7 @@ tbody tr {
   display: flex;
   justify-content: center;
   position: relative;
-  top: 80px;
+  top: 120px;
 }
 /* //////////// */
 
