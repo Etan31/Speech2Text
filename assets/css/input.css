@@ -36,6 +36,28 @@ body {
     background-position: 0% 50%;
   }
 }
+
+img {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 0px auto;
+  height: auto;
+  max-width: 100%;
+  min-width: 130px;
+}
+
+@media (max-width: 900px) {
+  img {
+    width: 130px;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 999px) {
+  img {
+    width: 160px;
+  }
+}
+
 textarea {
   font-family: "Roboto Slab", serif;
   letter-spacing: 1px;
@@ -154,6 +176,9 @@ textarea {
   display: none;
 }
 
+/* .my-container {
+  margin: 0 10px;
+} */
 /* PUT YOUR CODES BELOW */
 /* .hidden {
   display: none;

@@ -151,7 +151,7 @@ async function insertData() {
         await client.query(insertQuery, values);
         console.log("Data inserted successfully");
       } else {
-        console.log("Data already exists in database");
+        // console.log("Data already exists in database");
       }
     }
   } catch (err) {
@@ -188,7 +188,7 @@ chokidar.watch(dataFilePath).on("change", async (path) => {
         await client.query(insertQuery, values);
         console.log("Data inserted successfully");
       } else {
-        console.log("Data already exists in database");
+        // console.log("Data already exists in database");
       }
     }
   } catch (err) {
