@@ -53,6 +53,65 @@ app.get("/tablelist", (req, res) => {
   });
 });
 
+// app.post("/saveData", (req, res) => {
+//   const input = req.body.input;
+//   const textarea = req.body.textarea;
+
+//   res.sendStatus(200);
+// });
+
+// app.post("/saveData", (req, res) => {
+//    const input = req.body.input;
+//   const textarea = req.body.textarea;
+//   const inputText = req.body.input.filename;
+//   const convertedText = req.body.textarea.convertedtext;
+
+//   const newData = {
+//     input: {
+//       filename: inputText,
+//     },
+//     textarea: {
+//       convertedtext: convertedText,
+//     },
+//   };
+
+//   fs.readFile(dataFilePath, "utf8", (err, existingData) => {
+//     if (err) {
+//       // If data.json doesn't exist, create it and write the data to it
+//       const newDataArray = [newData];
+//       fs.writeFile(
+//         dataFilePath,
+//         JSON.stringify(newDataArray, null, 2),
+//         (err) => {
+//           if (err) {
+//             console.error(err);
+//             res.status(500).send("Error writing to data.json");
+//           } else {
+//             res.send("Data written to data.json successfully");
+//           }
+//         }
+//       );
+//     } else {
+//       const existingDataArray = existingData.length
+//         ? JSON.parse(existingData)
+//         : [];
+//       existingDataArray.push(newData);
+//       fs.writeFile(
+//         dataFilePath,
+//         JSON.stringify(existingDataArray, null, 2),
+//         (err) => {
+//           if (err) {
+//             console.error(err);
+//             res.status(500).send("Error writing to data.json");
+//           } else {
+//             res.send("Data appended to data.json successfully");
+//           }
+//         }
+//       );
+//     }
+//   });
+// });
+
 app.post("/saveData", (req, res) => {
   const inputText = req.body.input.filename;
   const convertedText = req.body.textarea.convertedtext;
@@ -142,7 +201,7 @@ async function insertData() {
 
     for (const item of jsonData) {
       if (!item.textarea || !item.textarea.convertedtext) {
-        console.error("Error inserting data: invalid data format");
+        // console.error("Error inserting data: invalid data format");
         continue;
       }
       const values = [item.input.filename, item.textarea.convertedtext];
@@ -155,7 +214,7 @@ async function insertData() {
       }
     }
   } catch (err) {
-    console.error("Error inserting data:", err);
+    // console.error("Error inserting data:", err);
   }
 }
 

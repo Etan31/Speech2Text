@@ -1,4 +1,7 @@
 //APPEND DATA
+
+const inputText = document.getElementById("inputText");
+const textarea = document.getElementById("convert_text");
 const saveButton = document.querySelector("#saveButton");
 saveButton.addEventListener("click", saveData);
 
@@ -27,9 +30,6 @@ function saveData() {
     .then((message) => console.log(message))
     .catch((error) => console.error(error));
 }
-
-const inputText = document.getElementById("inputText");
-const textarea = document.getElementById("convert_text");
 
 function updateButtonState() {
   if (inputText.value.trim() !== "" && textarea.value.trim() !== "") {

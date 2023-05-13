@@ -11,7 +11,12 @@ const startRecording = () => {
       .map((result) => result[0])
       .map((result) => result.transcript)
       .join("");
-    document.getElementById("convert_text").innerHTML = transcript;
+    const existingText = textarea.value.trim();
+    if (existingText.length > 0) {
+      textarea.value = existingText + " " + transcript;
+    } else {
+      textarea.value = transcript;
+    }
     console.log(transcript);
   });
   recognition.addEventListener("end", () => {
@@ -56,3 +61,44 @@ window.addEventListener("load", () => {
 //   var loading = document.getElementById("loading");
 //   loading.classList.add("hidden");
 // }, 5000); // 5000 milliseconds = 5 seconds
+
+// Clearing body of the input and textarea
+const btn = document.getElementById("saveButton");
+if (btn) {
+  btn.addEventListener("click", () => {
+    const inputField = document.getElementById("inputText");
+    const textareaField = document.getElementById("convert_text");
+
+    const inputText = inputField.value;
+    const convertedText = textareaField.value;
+
+    fetch("/saveData", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        input: {
+          filename: inputText,
+        },
+        textarea: {
+          convertedtext: convertedText,
+        },
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Clear the input and textarea fields
+          inputField.value = "";
+          textareaField.value = "";
+        } else {
+          console.error(response.statusText);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  });
+} else {
+  console.error("Button not found");
+}
