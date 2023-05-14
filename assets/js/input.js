@@ -1,36 +1,55 @@
 ///FIXING THE RECORDING WHEN THE MAIN IS RELOAD
 let isRecording = false;
 let recognition = null;
+let transcript = "";
+let previousTranscript = "";
 
 const startRecording = () => {
   isRecording = true;
   recognition = new window.webkitSpeechRecognition();
   recognition.interimResults = true;
+
   recognition.addEventListener("result", (event) => {
-    const transcript = Array.from(event.results)
+    transcript = Array.from(event.results)
       .map((result) => result[0])
       .map((result) => result.transcript)
       .join("");
+
+    if (event.results[event.results.length - 1].isFinal) {
+      previousTranscript = transcript;
+    }
+
     const existingText = textarea.value.trim();
     if (existingText.length > 0) {
-      textarea.value = existingText + " " + transcript;
+      if (existingText.endsWith(previousTranscript)) {
+        textarea.value = existingText;
+      } else {
+        textarea.value = existingText + " " + transcript;
+      }
     } else {
       textarea.value = transcript;
     }
+
     console.log(transcript);
   });
+
   recognition.addEventListener("end", () => {
     if (isRecording) {
       startRecording();
     }
   });
+
   recognition.start();
+  document.getElementById("click_to_convert").style.backgroundColor = "#ff0000";
 };
 
+//not'''
 const stopRecording = () => {
   if (isRecording) {
     isRecording = false;
     recognition.stop();
+
+    document.getElementById("click_to_convert").style.backgroundColor = "";
   }
 };
 
