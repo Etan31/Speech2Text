@@ -43,7 +43,6 @@ const startRecording = () => {
   document.getElementById("click_to_convert").style.backgroundColor = "#ff0000";
 };
 
-//not'''
 const stopRecording = () => {
   if (isRecording) {
     isRecording = false;

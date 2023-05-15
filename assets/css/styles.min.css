@@ -797,6 +797,10 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   background-color: #fff;
+  overflow-x: hidden;
+  width: 100vw;
+  height: auto;
+  padding: 10px 0px;
 }
 figure {
   margin: 0;

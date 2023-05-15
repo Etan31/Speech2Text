@@ -199,7 +199,25 @@ tbody tr {
 }
 
 /* //Delete btn */
-
+.dlt {
+  background-color: rgba(238, 238, 238, 0.221);
+  display: grid;
+  position: fixed;
+  left: 4%;
+  bottom: 4%;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 9px 9px 0px rgba(0, 0, 0, 0.2);
+}
+.dlt > .dltBtn {
+  border: none;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  width: 50px;
+  height: 52px;
+  align-items: center;
+}
 /* //////////// */
 
 .button-59 {
@@ -379,6 +397,10 @@ msfndc
 */
 
 body {
+  width: 100vw;
+  height: 750px;
+  padding: 10px 0px;
+  overflow-x: hidden;
   margin: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
@@ -427,12 +449,12 @@ h1 {
 }
 .h2,
 h2 {
-  font-size: calc(1.325rem + 0.9vw);
+  font-size: clamp(1rem, 1.3333vw + 0.6667rem, 20px);
 }
 @media (min-width: 1200px) {
   .h2,
   h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 .h3,
@@ -5504,7 +5526,8 @@ fieldset:disabled .btn {
   flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
-  padding: var(--bs-modal-header-padding);
+  padding: 15px;
+  background: #80808036;
   border-bottom: var(--bs-modal-header-border-width) solid
     var(--bs-modal-header-border-color);
   border-top-left-radius: var(--bs-modal-inner-border-radius);
@@ -5524,7 +5547,7 @@ fieldset:disabled .btn {
 .modal-body {
   position: relative;
   flex: 1 1 auto;
-  padding: var(--bs-modal-padding);
+  padding: 5px;
 }
 .modal-footer {
   display: flex;
@@ -5532,7 +5555,7 @@ fieldset:disabled .btn {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  padding: calc(var(--bs-modal-padding) - var(--bs-modal-footer-gap) * 0.5);
+  padding: 10px;
   background-color: var(--bs-modal-footer-bg);
   border-top: var(--bs-modal-footer-border-width) solid
     var(--bs-modal-footer-border-color);

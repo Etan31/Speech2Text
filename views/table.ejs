@@ -4,26 +4,15 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-   <title>1</title>
+   <title>Speech2tech/table</title>
+
    <link rel="stylesheet" href="/css/bootstrap.min.css">
    <link rel="stylesheet" href="/css/input.css">
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
-<body style="width: 100vw; height: auto; padding: 10px 0px;">
-   <!-- /*//////////////////////////////////////////////////////////*/
-      /*//////////////////////////////////////////////////////////*/
-      /* COLOR PALLET */
-      /*
-      #14365C - DARKBLUE
-      #F1FA39 - YELLOW
-      #E31717 - RED
-      #99998D - GRAY
-      #0E2747 - DARKBLUE */
-      
-      /*//////////////////////////////////////////////////////////*/ -->
-
+<body>
    <img src="/img/2.png" alt="Logo">
 
    <div class="search-box">
@@ -33,7 +22,7 @@
       </div>
       <div class="cancel-icon">
          <i class="fas fa-times"></i>
-      </div>   
+      </div>
       <div class="search-data">
       </div>
    </div>
@@ -85,6 +74,34 @@
          </tbody>
       </table>
    </div>
+
+
+   <div class="modal" id="myModal">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h2 id="modal-header"></h2>
+         </div>
+         <div class="modal-body">
+            <p id="modal-message"></p>
+         </div>
+         <div class="modal-footer">
+            <button class="cancel-btn">Cancel</button>
+            <button class="delete-btn">Delete</button>
+         </div>
+      </div>
+   </div>
+
+   <div class="dlt" id="deleteBtn">
+      <button class="dltBtn" id="dltBtn">
+         <?xml version="1.0" ?><svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"
+            style="padding:5px">
+            <path d="M12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V14H12v24zM38 8h-7l-2-2H19l-2 2h-7v4h28V8z"
+               fill="#ff0000" />
+            <path d="M0 0h48v48H0z" fill="none" />
+         </svg>
+      </button>
+   </div>
+
 
    <!-- JAVASCRIPT FUNCTION -->
    <script src="/js/bootstrap.min.js"></script>

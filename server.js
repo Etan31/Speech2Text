@@ -53,6 +53,16 @@ app.get("/tablelist", (req, res) => {
   });
 });
 
+//delete button
+app.post("/deleteData", (req, res) => {
+  const dataPath = path.join(__dirname, "saveData", "data.json");
+  fs.writeFile(dataPath, JSON.stringify([]), (err) => {
+    if (err) throw err;
+    console.log("Data deleted!");
+    res.send("Data deleted!");
+  });
+});
+
 app.post("/saveData", (req, res) => {
   const inputText = req.body.input.filename;
   const convertedText = req.body.textarea.convertedtext;
