@@ -20,9 +20,9 @@
 
 </head>
 
-<body style="width: 100vw;height: auto; padding:10px; ">
+<body style="width: 100vw;height: auto; padding:15px; position:relative;">
    <!-- <img src="" alt=""> -->
-   <!-- <div class="center" id="loading">
+   <div class="centerLoading" id="loading">
       <div class="wave"></div>
       <div class="wave"></div>
       <div class="wave"></div>
@@ -31,9 +31,8 @@
       <div class="wave"></div>
       <div class="wave"></div>
       <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-   </div> -->
+      <img src="/img/3.png" alt="Logo" class="imagelogo">
+   </div>
 
 
    <!-- <header></header> -->
@@ -49,13 +48,20 @@
 
    <!-- Save btn -->
    <div class="container  d-flex flex-shrink-1 flex-fill align-items-center container-1 my-container"
-      style="height: 50px;;margin-top: 130px;border-radius: 10px;background: var(--bs-gray-300);font-family: roboto;text-align: left;line-height: 49px;padding: 0px;padding-right: 0px;">
+      style="height: 50px;;margin-top: 30px;border-radius: 10px;background: var(--bs-gray-300);font-family: roboto;text-align: left;line-height: 49px;padding: 0px;padding-right: 0px;">
       <input type="text" id="inputText"
          style="padding: 1px 5px;width: 100%;padding-right: 7px;margin-right: 1px;height: 50px;border-bottom-left-radius: 10px;border-top-left-radius: 10px;border-width: 1px;font-size: 16px;">
       <button class="btn btn-primary float-none d-lg-flex align-items-lg-center" type="button" id="saveButton"
-         style="position: relative;height: 50px;margin: 0;margin-top: 0;border-radius: 10px;border-top-left-radius: 0;border-bottom-left-radius: 0;border-top-right-radius: 10px;border-bottom-right-radius: 10px;width: 20%;padding: 0;margin-right: 0px;text-align: center;margin-left: 0px;padding-left: 0px;display:flex;justify-content: center; align-items: center;">
+         style="position: relative;height: 50px;margin: 0;margin-top: 0;border-radius: 0px;width: 20%;padding: 0;margin-right: 0px;text-align: center;margin-left: 0px;padding-left: 0px;display:flex;justify-content: center; align-items: center;">
          <span class="material-symbols-outlined" style="font-size: 40px;">save</span>
          <div class="savetxt">SAVE</div>
+      </button>
+      <button class="btn btn-primary float-none d-lg-flex align-items-lg-center copyBtn" type="button" id="copyButton"
+         style="position: relative;height: 50px;margin: 0;margin-top: 0;border-radius: 10px;border-top-left-radius: 0;border-bottom-left-radius: 0;border-top-right-radius: 10px;border-bottom-right-radius: 10px;width: 20%;padding: 0;margin-right: 0px;text-align: center;margin-left: 0px;padding-left: 0px;display:flex;justify-content: center; align-items: center;">
+         <span class="material-symbols-outlined" style="font-size: 40px;">
+            content_copy
+         </span>
+         <div class="savetxt">COPY</div>
       </button>
    </div>
 
@@ -79,6 +85,10 @@
                   Enjoy notes-talking :)" -->
 
       </div>
+   </div>
+
+   <div class="notification" id="copyNotification">
+      Text copied to clipboard!
    </div>
 
    <!-- Record btnd -->

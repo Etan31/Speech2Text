@@ -11,13 +11,7 @@
 
 /*//////////////////////////////////////////////////////////*/
 
-/* HTML,
-body {
-  display: grid;
-  height: 100%;
-  place-items: center;
-  background: #1ea8e8;
-} */
+/* HTML */
 body {
   background: linear-gradient(-90deg, #b6d8ff, #d9eafb, #f4f8ff, #ffffff);
   background-size: 400% 400%;
@@ -35,6 +29,24 @@ body {
   100% {
     background-position: 0% 50%;
   }
+}
+
+.imagelogo {
+  display: flex;
+  margin: 0px;
+}
+
+body.loading {
+  overflow: hidden;
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
 }
 
 img {
@@ -93,18 +105,18 @@ textarea {
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   position: fixed;
   text-align: right;
-  top: 25px;
+  top: 135px;
   right: 50px;
 }
 .search-box.active {
-  width: 350px;
+  width: 300px;
   position: fixed;
   text-align: right;
   top: 25px;
   right: 50px;
 }
 .search-box input {
-  width: 95%;
+  width: 92%;
   margin-top: 4px;
   margin-right: 10px;
   margin-left: 10px;
@@ -157,7 +169,7 @@ textarea {
   top: 50%;
   transform: translateY(-50%);
   font-size: 25px;
-  color: #fff;
+  color: #0e2747;
   cursor: pointer;
   transition: all 0.5s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
@@ -176,25 +188,22 @@ textarea {
   display: none;
 }
 
-/* .my-container {
-  margin: 0 10px;
-} */
 /* PUT YOUR CODES BELOW */
-/* .hidden {
+.hidden {
   display: none;
-} */
-/* 
-.center {
+}
+
+.centerLoading {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000;
+  background: linear-gradient(-90deg, #b6d8ff, #d9eafb, #f4f8ff, #ffffff);
 }
 .wave {
   width: 5px;
   height: 100px;
-  background: linear-gradient(45deg, cyan, #fff);
+  background: linear-gradient(45deg, #0e2747, #e31717);
   margin: 10px;
   animation: wave 1s linear infinite;
   border-radius: 20px;
@@ -237,7 +246,7 @@ textarea {
   100% {
     transform: scale(0);
   }
-} */
+}
 
 /* Confirmation before delete */
 .modal {

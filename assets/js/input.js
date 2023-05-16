@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-//loader
+//LOADER
 window.addEventListener("load", () => {
   const loader = document.querySelector(".loader");
 
@@ -71,14 +71,33 @@ window.addEventListener("load", () => {
 
   loader.addEventListener("transitionend", () => {
     document.body.removeChild(loader);
+    document.body.classList.remove("loading");
   });
+  document.body.classList.add("loading");
 });
 
 // /LOADING SCREEN DURATION
-// setTimeout(function () {
-//   var loading = document.getElementById("loading");
-//   loading.classList.add("hidden");
-// }, 5000); // 5000 milliseconds = 5 seconds
+setTimeout(function () {
+  var loading = document.getElementById("loading");
+  loading.classList.add("hidden");
+  document.body.classList.remove("loading");
+}, 3000);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const copyButton = document.getElementById("copyButton");
+  const convertText = document.getElementById("convert_text");
+  const copyNotification = document.getElementById("copyNotification");
+
+  copyButton.addEventListener("click", () => {
+    convertText.select();
+    document.execCommand("copy");
+
+    copyNotification.classList.add("show");
+    setTimeout(() => {
+      copyNotification.classList.remove("show");
+    }, 2000);
+  });
+});
 
 // Clearing body of the input and textarea
 const btn = document.getElementById("saveButton");
