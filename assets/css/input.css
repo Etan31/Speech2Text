@@ -31,6 +31,11 @@ body {
   }
 }
 
+.saveInput:focus {
+  outline: none;
+  border: none;
+}
+
 .imagelogo {
   display: flex;
   margin: 0px;
@@ -105,14 +110,14 @@ textarea {
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   position: fixed;
   text-align: right;
-  top: 135px;
+  top: 145px;
   right: 50px;
 }
 .search-box.active {
   width: 300px;
   position: fixed;
   text-align: right;
-  top: 25px;
+  top: 145px;
   right: 50px;
 }
 .search-box input {
@@ -198,12 +203,12 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(-90deg, #b6d8ff, #d9eafb, #f4f8ff, #ffffff);
+  background: linear-gradient(-90deg, #020513, #40444d);
 }
 .wave {
   width: 5px;
   height: 100px;
-  background: linear-gradient(45deg, #0e2747, #e31717);
+  background: #e31717;
   margin: 10px;
   animation: wave 1s linear infinite;
   border-radius: 20px;

@@ -76,12 +76,13 @@ window.addEventListener("load", () => {
   document.body.classList.add("loading");
 });
 
-// /LOADING SCREEN DURATION
+// //LOADER OF MAIN.EJS
+// //LOADING SCREEN DURATION
 setTimeout(function () {
   var loading = document.getElementById("loading");
   loading.classList.add("hidden");
   document.body.classList.remove("loading");
-}, 3000);
+}, 1000);
 
 document.addEventListener("DOMContentLoaded", () => {
   const copyButton = document.getElementById("copyButton");
@@ -98,6 +99,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000);
   });
 });
+const loader = document.getElementById("loading");
+
+// LOADER OF TABLE.EJS
+setTimeout(() => {
+  loader.style.display = "none";
+}, 1000);
 
 // Clearing body of the input and textarea
 const btn = document.getElementById("saveButton");
