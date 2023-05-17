@@ -130,7 +130,7 @@ async function start() {
     const createTableQuery = `
       CREATE TABLE IF NOT EXISTS table_name (
         filename VARCHAR(200),
-        convertedtext VARCHAR(200)
+        convertedtext VARCHAR(1000)
       )
     `;
     await client.query(createTableQuery);

@@ -82,7 +82,7 @@ setTimeout(function () {
   var loading = document.getElementById("loading");
   loading.classList.add("hidden");
   document.body.classList.remove("loading");
-}, 1000);
+}, 500);
 
 document.addEventListener("DOMContentLoaded", () => {
   const copyButton = document.getElementById("copyButton");
@@ -104,7 +104,7 @@ const loader = document.getElementById("loading");
 // LOADER OF TABLE.EJS
 setTimeout(() => {
   loader.style.display = "none";
-}, 1000);
+}, 500);
 
 // Clearing body of the input and textarea
 const btn = document.getElementById("saveButton");
