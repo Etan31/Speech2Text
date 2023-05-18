@@ -48,8 +48,8 @@
    <!-- Save btn -->
    <div class="container  d-flex flex-shrink-1 flex-fill align-items-center container-1 my-container"
       style="height: 50px;;margin-top: 30px;border-radius: 10px;font-family: roboto;text-align: left;line-height: 49px;padding: 0px;padding-right: 0px; box-shadow: 0px 4px 2px 1px rgba(0, 0, 0, 0.2);">
-      <input type="text" id="inputText" class="saveInput"
-         style="padding: 1px 5px;width: 100%;padding-right: 7px;margin-right: 1px;height: 50px;border-bottom-left-radius: 10px;border-top-left-radius: 10px;border-width: 1px;font-size: 16px; border: 1px solid #80808033;">
+      <input type="text" id="inputText" class="saveInput" placeholder="File name"
+         style="font-family: Roboto Slab, serif;padding: 1px 5px;width: 100%;padding-right: 7px;margin-right: 1px;height: 50px;border-bottom-left-radius: 10px;border-top-left-radius: 10px;border-width: 1px;font-size: clamp(2rem, 50%, 3rem);    border: 1px solid #80808033;">
       <button class="btn btn-primary float-none d-lg-flex align-items-lg-center" type="button" id="saveButton"
          style="position: relative;height: 50px;margin: 0;margin-top: 0;border-radius: 0px;width: 20%;padding: 0;margin-right: 0px;text-align: center;margin-left: 0px;padding-left: 0px;display:flex;justify-content: center; align-items: center;">
          <span class="material-symbols-outlined" style="font-size: 40px;">save</span>
@@ -69,20 +69,13 @@
    <div class="container container-2"
       style="margin-top: 20px;height: 408px;font-family: Roboto;border-radius: 10p x;padding-right: 0px;padding-left: 0px;">
       <div class="voice_to_text">
-         <textarea id="convert_text" aria-label="Tap the mic to talk"></textarea>
-         <!-- placeholder="Click the mic to start dictating.
+         <textarea id="convert_text" aria-label="Tap the mic to talk" placeholder="Click the mic to start dictating.
                   
                   Quick tips:
                   
                   (1) Use the speaker icon for proof reading.
                   
-                  (2) Punctuating. Use any of the 3 methods to punctuate: i. Dictate it. ii. Type it - without stopping the microphone.
-                  iii. Tap the punctuation mark on the punctuation panel on the right.
-                  
-                  (3) Press the Enter key on your keyboard to instantly finalize pending results.
-                  
-                  Enjoy notes-talking :)" -->
-
+                  Enjoy notes-talking :)"></textarea>
       </div>
    </div>
 
