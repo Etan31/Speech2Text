@@ -84,7 +84,26 @@ app.delete("/delete-files", (req, res) => {
   });
 });
 
+const pool = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_DATABASE,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+});
 // delete data from database
+app.post("/deletesData", (req, res) => {
+  // Perform the DELETE query
+  pool.query("DELETE FROM table_data", (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error deleting data from table_data");
+    } else {
+      console.log(result.rowCount + " rows deleted from table_data");
+      res.send("Data deleted from table_data successfully");
+    }
+  });
+});
 
 // Delete data.json file
 app.post("/deleteData", (req, res) => {

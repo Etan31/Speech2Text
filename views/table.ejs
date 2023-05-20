@@ -108,11 +108,25 @@
          </div>
          <div class="modal-footer">
             <button class="cancel-btn">Cancel</button>
-            <button class="delete-btn">Delete</button>
+            <button class="delete-btn" id="deleteData-btn">Delete</button>
          </div>
       </div>
    </div>
-
+   <script>
+      document.getElementById('deleteData-btn').addEventListener('click', () => {
+         fetch('/deletesData', {
+            method: 'POST'
+         })
+            .then(response => response.text())
+            .then(data => {
+               console.log(data);
+               // Handle the response as needed
+            })
+            .catch(error => {
+               console.error(error);
+               // Handle the error
+            });
+      });</script>
 
 
 
