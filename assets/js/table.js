@@ -40,26 +40,6 @@ fetch("/saveData/data.json")
 
 //deleteBtn
 
-function confirmDelete() {
-  const confirmation = confirm(
-    "Delete Confirmation\n\nAre you sure you want to erase the table?"
-  );
-  if (confirmation === true) {
-    deleteData();
-  }
-}
-
-function deleteData() {
-  fetch("/deleteData", { method: "POST" })
-    .then((response) => response.text())
-    .then((data) => {
-      console.log(data);
-      location.reload();
-    })
-    .catch((error) => console.error(error));
-}
-
-
 //delete function.
 const deleteBtn = document.getElementById("deleteBtn");
 deleteBtn.addEventListener("click", popup);
@@ -72,7 +52,7 @@ function popup() {
   const cancelBtn = document.querySelector(".cancel-btn");
 
   header.textContent = "Delete Confirmation";
-  message.textContent = "Are you sure you want to erase the table?";
+  message.textContent = "Are you sure you want to Erase the table?";
 
   modal.style.display = "flex";
   modal.style.justifyContent = "evenly";
@@ -95,3 +75,35 @@ function deleteData() {
     })
     .catch((error) => console.error(error));
 }
+
+
+deleteBtn.addEventListener("click", () => {
+  const modal = document.getElementById("myModal");
+  modal.style.display = "block";
+
+  const deleteButton = document.querySelector(".delete-btn");
+  deleteButton.addEventListener("click", () => {
+    fetch("/delete-files", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(() => {
+        console.log("All files deleted successfully.");
+      })
+      .catch((error) => {
+        console.error("An error occurred while deleting the files.", error);
+      })
+      .finally(() => {
+        modal.style.display = "none";
+      });
+  });
+});
+
+// Handle cancel button click event
+const cancelButton = document.querySelector(".cancel-btn");
+cancelButton.addEventListener("click", () => {
+  const modal = document.getElementById("myModal");
+  modal.style.display = "none";
+});

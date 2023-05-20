@@ -6,6 +6,7 @@ const path = require("path");
 require("dotenv").config();
 const { Client } = require("pg");
 const chokidar = require("chokidar");
+const { Pool } = require("pg");
 
 const PORT = process.env.PORT || 8000;
 
@@ -53,7 +54,39 @@ app.get("/tablelist", (req, res) => {
   });
 });
 
-//delete button
+//delete all txt files from the directory
+app.delete("/delete-files", (req, res) => {
+  const directory = "txtFiles";
+  const directoryPath = path.join(__dirname, directory);
+
+  fs.readdir(directoryPath, (err, files) => {
+    if (err) {
+      console.error(err);
+      return res
+        .status(500)
+        .json({ message: "An error occurred while deleting the files." });
+    }
+
+    files.forEach((file) => {
+      const filePath = path.join(directoryPath, file);
+
+      fs.unlink(filePath, (err) => {
+        if (err) {
+          console.error(err);
+          return res
+            .status(500)
+            .json({ message: "An error occurred while deleting the files." });
+        }
+      });
+    });
+
+    return res.json({ message: "All files deleted successfully." });
+  });
+});
+
+// delete data from database
+
+// Delete data.json file
 app.post("/deleteData", (req, res) => {
   const dataPath = path.join(__dirname, "saveData", "data.json");
   fs.writeFile(dataPath, JSON.stringify([]), (err) => {
@@ -128,7 +161,7 @@ async function start() {
     console.log("Connected to database");
 
     const createTableQuery = `
-      CREATE TABLE IF NOT EXISTS table_name (
+      CREATE TABLE IF NOT EXISTS table_data (
         filename VARCHAR(200),
         convertedtext VARCHAR(1000)
       )
@@ -146,9 +179,9 @@ async function insertData() {
     const data = await fs.promises.readFile(dataFilePath, "utf8");
     const jsonData = JSON.parse(data);
     const selectQuery =
-      "SELECT * FROM table_name WHERE filename = $1 AND convertedtext = $2";
+      "SELECT * FROM table_data WHERE filename = $1 AND convertedtext = $2";
     const insertQuery =
-      "INSERT INTO table_name (filename, convertedtext) VALUES ($1, $2)";
+      "INSERT INTO table_data (filename, convertedtext) VALUES ($1, $2)";
 
     for (const item of jsonData) {
       if (!item.textarea || !item.textarea.convertedtext) {
@@ -183,9 +216,9 @@ chokidar.watch(dataFilePath).on("change", async (path) => {
     const data = await fs.promises.readFile(path, "utf8");
     const jsonData = JSON.parse(data);
     const selectQuery =
-      "SELECT * FROM table_name WHERE filename = $1 AND convertedtext = $2";
+      "SELECT * FROM table_data WHERE filename = $1 AND convertedtext = $2";
     const insertQuery =
-      "INSERT INTO table_name (filename, convertedtext) VALUES ($1, $2)";
+      "INSERT INTO table_data (filename, convertedtext) VALUES ($1, $2)";
 
     for (const item of jsonData) {
       if (!item.textarea || !item.textarea.convertedtext) {

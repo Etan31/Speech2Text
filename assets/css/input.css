@@ -272,7 +272,7 @@ textarea {
   margin: 15% auto;
   padding: 0px;
   border: 1px solid #888;
-  width: calc(500px + 10 * ((100vw - 320px) / 680));
+  /* width: calc(500px + 10 * ((100vw - 320px) / 680)); */
   display: flex;
   justify-content: center;
   max-width: 500px;
@@ -325,4 +325,20 @@ textarea {
   /* color: #fff; */
   /* background: #0e2747; */
   /* color: white; */
+}
+
+/* Dark Mode switch */
+
+input[type="checkbox"]:checked ~ .switch-btn {
+  border: 4px solid #2e3052;
+  background-color: #0a58ca;
+}
+
+input[type="checkbox"]:checked ~ .switch-btn label {
+  transform: translateX(calc(61px - 30px));
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+input[type="checkbox"]:checked ~ .switch-btn label .icons {
+  transform: translateX(-20px);
 }

@@ -1,5 +1,4 @@
 //APPEND DATA
-
 const inputText = document.getElementById("inputText");
 const textarea = document.getElementById("convert_text");
 const saveButton = document.querySelector("#saveButton");
@@ -32,6 +31,10 @@ function saveData() {
 }
 
 function updateButtonState() {
+  const inputText = document.getElementById("inputText");
+  const textarea = document.getElementById("convert_text");
+  const saveButton = document.querySelector("#saveButton");
+
   if (inputText.value.trim() !== "" && textarea.value.trim() !== "") {
     saveButton.removeAttribute("disabled");
   } else {
@@ -44,6 +47,7 @@ textarea.addEventListener("input", updateButtonState);
 
 saveButton.addEventListener("click", function () {
   const converted_text = inputText.value.trim();
+  saveButton.setAttribute("disabled", true);
 });
 
 updateButtonState();

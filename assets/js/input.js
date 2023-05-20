@@ -8,6 +8,8 @@ const startRecording = () => {
   isRecording = true;
   recognition = new window.webkitSpeechRecognition();
   recognition.interimResults = true;
+  (recognition.lang = "en-GB", "es-ES", "fr-FR", "de-DE", "it-IT",
+  "ja-JP", "ko-KR", "pt-BR", "ru-RU", "zh-CN", "fil-PH");
 
   recognition.addEventListener("result", (event) => {
     transcript = Array.from(event.results)
@@ -101,12 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 const loader = document.getElementById("loading");
 
-// LOADER OF TABLE.EJS
-setTimeout(() => {
-  loader.style.display = "none";
-}, 500);
-
-// Clearing body of the input and textarea
+// Clears and save the body of the input and textarea
 const btn = document.getElementById("saveButton");
 if (btn) {
   btn.addEventListener("click", () => {
@@ -116,6 +113,7 @@ if (btn) {
     const inputText = inputField.value;
     const convertedText = textareaField.value;
 
+    // Save to JSON file (data.json)
     fetch("/saveData", {
       method: "POST",
       headers: {
@@ -132,9 +130,17 @@ if (btn) {
     })
       .then((response) => {
         if (response.ok) {
-          // Clear the input and textarea fields
           inputField.value = "";
           textareaField.value = "";
+
+          // Save to text file
+          const element = document.createElement("a");
+          const file = new Blob([convertedText], { type: "text/plain" });
+          element.href = URL.createObjectURL(file);
+          element.download = `${inputText}.txt`;
+          document.body.appendChild(element);
+          element.click();
+          document.body.removeChild(element);
         } else {
           console.error(response.statusText);
         }
