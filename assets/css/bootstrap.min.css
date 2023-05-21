@@ -172,15 +172,18 @@
   width: 70vw;
 }
 .tbody > tr {
-  height: 50px;
+  /* height: 50px; */
+  height: auto;
   overflow-y: auto;
   align-items: center;
+  padding: 15px 0px;
 }
 
 .tbody > tr:hover {
   color: white;
-  height: 50px;
+  height: auto;
   transition: 0.1s;
+  padding: 15px 0px;
   border-bottom: 1px solid rgba(128, 128, 128, 0.436);
   background-color: #0e274768;
 }

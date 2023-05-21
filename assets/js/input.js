@@ -1,3 +1,24 @@
+// Limit the user from typing that special characters and exceeding more than 200 characters.
+const inputElement = document.getElementById("inputText");
+inputElement.addEventListener("input", function () {
+  const inputValue = inputElement.value;
+
+  // Limit the input to 200 characters
+  if (inputValue.length > 200) {
+    inputElement.value = inputValue.slice(0, 200);
+    alert("You have reached the character limit (200).");
+  }
+
+  // Disallow special characters
+  const invalidCharacters = /[/\\:*?"<>|]/;
+  if (invalidCharacters.test(inputValue)) {
+    inputElement.value = inputValue.replace(invalidCharacters, "");
+    alert(
+      'The file name cannot contain any of the following characters: / \\ : * ? " < > |'
+    );
+  }
+});
+
 ///FIXING THE RECORDING WHEN THE MAIN IS RELOAD
 let isRecording = false;
 let recognition = null;
@@ -8,8 +29,6 @@ const startRecording = () => {
   isRecording = true;
   recognition = new window.webkitSpeechRecognition();
   recognition.interimResults = true;
-  (recognition.lang = "en-GB", "es-ES", "fr-FR", "de-DE", "it-IT",
-  "ja-JP", "ko-KR", "pt-BR", "ru-RU", "zh-CN", "fil-PH");
 
   recognition.addEventListener("result", (event) => {
     transcript = Array.from(event.results)

@@ -76,7 +76,7 @@ function deleteData() {
     .catch((error) => console.error(error));
 }
 
-
+// Delete all txt file from the directory
 deleteBtn.addEventListener("click", () => {
   const modal = document.getElementById("myModal");
   modal.style.display = "block";
@@ -101,7 +101,6 @@ deleteBtn.addEventListener("click", () => {
   });
 });
 
-// Handle cancel button click event
 const cancelButton = document.querySelector(".cancel-btn");
 cancelButton.addEventListener("click", () => {
   const modal = document.getElementById("myModal");

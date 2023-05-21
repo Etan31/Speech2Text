@@ -8,6 +8,7 @@ const { Client } = require("pg");
 const chokidar = require("chokidar");
 const { Pool } = require("pg");
 
+
 const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
@@ -93,7 +94,6 @@ const pool = new Pool({
 });
 // delete data from database
 app.post("/deletesData", (req, res) => {
-  // Perform the DELETE query
   pool.query("DELETE FROM table_data", (err, result) => {
     if (err) {
       console.error(err);
@@ -182,7 +182,7 @@ async function start() {
     const createTableQuery = `
       CREATE TABLE IF NOT EXISTS table_data (
         filename VARCHAR(200),
-        convertedtext VARCHAR(1000)
+        convertedtext VARCHAR(100000)
       )
     `;
     await client.query(createTableQuery);
