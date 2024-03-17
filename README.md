@@ -9,18 +9,9 @@ This repository record your speech and convert it to text and can be saved to th
 * HTML
 * CSS
 
-## project for software development
+## Project for software development subject
 
-### LEADER: Tristan Ehron Tumbaga
-
-### MEMBERS:
-#### Carl Jarrel Arca
-#### Jovic Pesebre
-#### Jonamie Dolim
-
-
-
-NOTE: Configure .env file
+NOTE: Configure .env file 
 
 
 ```Installation fo pagckages
