@@ -3,7 +3,8 @@
 This repository record your speech and convert it to text and can be saved to the database using nodejs and postgreql.
 
 ## Technology used: 
-* nodeJs
+* Node.js
+* ejs
 * Postgresql
 * Javascript
 * HTML
