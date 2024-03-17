@@ -20,7 +20,7 @@ This repository record your speech and convert it to text and can be saved to th
 
 
 
-NOTE: change configure .env file
+NOTE: Configure .env file
 
 
 ```Installation fo pagckages
