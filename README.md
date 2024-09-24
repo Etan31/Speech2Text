@@ -1,14 +1,20 @@
 # Speech-to-text responsive web application
 
 This repository record your speech and convert it to text and can be saved to the database using nodejs and postgreql.
+A Natural Language Processing (NLP) web app that was made for our school project which is developed by the following members:
+* Jovic Vergara
+* Jonamie Dolim
+* Carl Jarrel Arca | [@CarlArca28](https://github.com/CarlArca28)
 
-## Technology used: 
+
+## Tools & Technology used: 
 * Node.js
 * ejs
 * Postgresql
 * Javascript
 * HTML
 * CSS
+* PostgreSQL
 
 ## Functionality: 
 - Realtime speech to text converter
